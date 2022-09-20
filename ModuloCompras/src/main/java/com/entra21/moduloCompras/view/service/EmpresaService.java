@@ -66,5 +66,7 @@ public class EmpresaService {
         return dto;
     }
 
-
+    public EmpresaEntity read(Long id, EmpresaEntity empresaEntity){
+        return empresaRepository.findById(id).orElseThrow(() -> new RuntimeException("Empresa não encontrada"));
+    }
 }
