@@ -1,4 +1,4 @@
-package com.entra21.moduloCompras.model.Entity;
+package com.entra21.moduloCompras.model.entity;
 
 
 import lombok.Data;
@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "funcionario_empresa")
 
-public class funcionarioEmpresaEntity {
+public class FuncionarioEmpresaEntity {
 
     @Column(name = "id")
     @Id
@@ -18,9 +18,9 @@ public class funcionarioEmpresaEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_empresa", referencedColumnName = "id")
-    private empresaEntity idEmpresa;
+    private EmpresaEntity idEmpresa;
 
     @ManyToOne
     @JoinColumn(name = "id_pessoa", referencedColumnName = "id")
-    private empresaEntity idPessoa;
+    private EmpresaEntity idPessoa;
 }

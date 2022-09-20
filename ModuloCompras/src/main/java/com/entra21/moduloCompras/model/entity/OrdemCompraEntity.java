@@ -1,4 +1,4 @@
-package com.entra21.moduloCompras.model.Entity;
+package com.entra21.moduloCompras.model.entity;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "ordem_compra")
-public class ordemCompraEntity {
+public class OrdemCompraEntity {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +15,9 @@ public class ordemCompraEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_empresa", referencedColumnName = "id")
-    private empresaEntity idEmpresa;
+    private EmpresaEntity idEmpresa;
 
     @ManyToOne
     @JoinColumn(name = "id_orcamento", referencedColumnName = "id")
-    private orcamentoEntity idOrcamento;
+    private OrcamentoEntity idOrcamento;
 }

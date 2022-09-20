@@ -1,4 +1,4 @@
-package com.entra21.moduloCompras.model.Entity;
+package com.entra21.moduloCompras.model.entity;
 
 
 import lombok.Data;
@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "pessoa")
-public class pessoaEntity {
+public class PessoaEntity {
 
     @Column(name = "id")
     @Id
