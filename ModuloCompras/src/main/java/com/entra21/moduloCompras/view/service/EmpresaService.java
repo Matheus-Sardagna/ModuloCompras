@@ -18,13 +18,13 @@ public class EmpresaService {
     public static EmpresaRepository empresaRepository;
 
     public List<EmpresaDTO> getAll() {
-        return empresaRepository.findAll().stream().map(emp -> {
+        return empresaRepository.findAll().stream().map(e -> {
             EmpresaDTO dto = new EmpresaDTO();
-            dto.setId(emp.getId());
-            dto.setRazaoSocial(emp.getRazaoSocial());
-            dto.setCnpj(emp.getCnpj());
-            dto.setEndereco(emp.getEndereco());
-            dto.setFornecedor(emp.getFornecedor());
+            dto.setId(e.getId());
+            dto.setRazaoSocial(e.getRazaoSocial());
+            dto.setCnpj(e.getCnpj());
+            dto.setEndereco(e.getEndereco());
+            dto.setFornecedor(e.getFornecedor());
             return dto;
         }).collect(Collectors.toList());
     }

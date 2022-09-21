@@ -15,7 +15,7 @@ public class OrcamentoItemEntity {
     private Long id;
 
     @Column(name = "valor_maximo")
-    private Double valorMarximo;
+    private Double valorMaximo;
 
     @ManyToOne
     @JoinColumn(name = "id_orcamento", referencedColumnName = "id")

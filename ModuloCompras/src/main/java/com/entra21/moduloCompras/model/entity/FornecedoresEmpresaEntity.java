@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "fornecedores_empresa")
 
-public class FornecedorEmpresaEntity {
+public class FornecedoresEmpresaEntity {
 
     @Column(name = "id")
     @Id
