@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Service
 public class OrdemCompraItemService {
     @Autowired
-    public static OrdemCompraItemRepository ordemCompraItemRepository;
+    private OrdemCompraItemRepository ordemCompraItemRepository;
 
     public List<OrdemCompraItemDTO> getAll() {
         return ordemCompraItemRepository.findAll().stream().map(o -> {

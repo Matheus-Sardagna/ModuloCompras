@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Service
 public class FornecedoresEmpresaService {
     @Autowired
-    public static FornecedoresEmpresaRepository fornecedoresEmpresaRepository;
+    private FornecedoresEmpresaRepository fornecedoresEmpresaRepository;
 
     public List<FornecedoresEmpresaDTO> getAll() {
         return fornecedoresEmpresaRepository.findAll().stream().map(f -> {

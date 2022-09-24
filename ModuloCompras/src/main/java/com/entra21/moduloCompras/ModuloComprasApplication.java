@@ -14,13 +14,4 @@ public class ModuloComprasApplication {
 		SpringApplication.run(ModuloComprasApplication.class, args);
 	}
 
-	@Configuration
-	public static class SecurityConfiguration {
-
-		@Bean
-		public static PasswordEncoder passwordEncoder() {
-			return NoOpPasswordEncoder.getInstance();
-		}
-	}
-
 }

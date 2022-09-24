@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class EmpresaService {
 
     @Autowired
-    public static EmpresaRepository empresaRepository;
+    private EmpresaRepository empresaRepository;
 
     public List<EmpresaDTO> getAll() {
         return empresaRepository.findAll().stream().map(e -> {

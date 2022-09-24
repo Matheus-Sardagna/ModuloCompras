@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Service
 public class ItemService {
     @Autowired
-    public static ItemRepository itemRepository;
+    private ItemRepository itemRepository;
 
     public List<ItemDTO> getAll() {
         return itemRepository.findAll().stream().map(i -> {

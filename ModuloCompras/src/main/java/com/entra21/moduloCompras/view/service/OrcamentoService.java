@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Service
 public class OrcamentoService {
     @Autowired
-    public static OrcamentoRepository orcamentoRepository;
+    private OrcamentoRepository orcamentoRepository;
 
     public List<OrcamentoDTO> getAll() {
         return orcamentoRepository.findAll().stream().map(o -> {

@@ -22,5 +22,8 @@ public class FuncionarioEmpresaEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_pessoa", referencedColumnName = "id")
-    private EmpresaEntity idPessoa;
+    private PessoaEntity idPessoa;
+
+    @Column(name = "ativo")
+    private Boolean ativo;
 }
