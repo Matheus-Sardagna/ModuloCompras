@@ -1,6 +1,7 @@
 package com.entra21.moduloCompras.view.service;
 
 
+import com.entra21.moduloCompras.model.dto.CotacaoFornecedorDTO;
 import com.entra21.moduloCompras.model.dto.OrdemCompraItemCotacaoDTO;
 import com.entra21.moduloCompras.model.entity.OrdemCompraItemCotacaoEntity;
 import com.entra21.moduloCompras.view.repository.OrdemCompraItemCotacaoRepository;
@@ -28,10 +29,21 @@ public class OrdemCompraItemCotacaoService {
         }).collect(Collectors.toList());
     }
 
+    public List<CotacaoFornecedorDTO> findById(Long id){
+        return ordemCompraItemCotacaoRepository.findAll().stream().map((cf)->{
+            CotacaoFornecedorDTO dto = new CotacaoFornecedorDTO();
+            dto.setIdfornecedor(cf.getIdFornecedor().getId());
+            dto.setValorUnitario(cf.getValor());
+            dto.setDescricao(cf.getIdOrdemCompraItem().getIdItem().getDescricao());
+            dto.setQuantidade(cf.getIdOrdemCompraItem().getQuantidade());
+            dto.setValorTotal(cf.getValor()* dto.getQuantidade());
+            return dto;
+        }).collect(Collectors.toList());
+    }
+
     public void save(OrdemCompraItemCotacaoDTO input) {
         OrdemCompraItemCotacaoEntity newEntity = new OrdemCompraItemCotacaoEntity();
         newEntity.setValor(input.getValor());
-        newEntity.setEscolhida(input.getEscolhida());
         ordemCompraItemCotacaoRepository.save(newEntity);
     }
 
@@ -48,16 +60,10 @@ public class OrdemCompraItemCotacaoService {
         ordemCompraItemCotacaoRepository.deleteById(id);
     }
 
-    public OrdemCompraItemCotacaoDTO update(Long id, OrdemCompraItemCotacaoEntity ordemCompraItemCotacaoEntity) {
-        OrdemCompraItemCotacaoEntity o = ordemCompraItemCotacaoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ordem de compra não encontrada."));
-        o.setValor(ordemCompraItemCotacaoEntity.getValor());
-        o.setEscolhida(ordemCompraItemCotacaoEntity.getEscolhida());
-        o = ordemCompraItemCotacaoRepository.save(o);
-        OrdemCompraItemCotacaoDTO dto = new OrdemCompraItemCotacaoDTO();
-        dto.setValor(o.getValor());
-        dto.setEscolhida(o.getEscolhida());
-        dto.setId(o.getId());
-        return dto;
+    public OrdemCompraItemCotacaoEntity update(Long id, OrdemCompraItemCotacaoEntity ordemCompraItemCotacaoEntity) {
+        OrdemCompraItemCotacaoEntity updateOrdemCompraItemCotacao = ordemCompraItemCotacaoRepository.findById(id).orElseThrow(()-> new RuntimeException("Cotação não encontrada"));
+        updateOrdemCompraItemCotacao.setEscolhida(ordemCompraItemCotacaoEntity.getEscolhida());
+                return ordemCompraItemCotacaoRepository.save(updateOrdemCompraItemCotacao);
     }
 
     public OrdemCompraItemCotacaoEntity read(Long id, OrdemCompraItemCotacaoEntity ordemCompraItemCotacaoEntity){

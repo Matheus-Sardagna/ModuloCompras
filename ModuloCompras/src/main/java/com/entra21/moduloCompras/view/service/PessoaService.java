@@ -39,6 +39,9 @@ public class PessoaService implements UserDetailsService {
         newEntity.setSobrenome(input.getSobrenome());
         newEntity.setTelefone(input.getTelefone());
         newEntity.setCpf(input.getCpf());
+        newEntity.setAtivo(input.getAtivo());
+        newEntity.setLogin(input.getLogin());
+        newEntity.setSenha(input.getSenha());
         pessoaRepository.save(newEntity);
     }
 

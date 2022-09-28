@@ -15,7 +15,7 @@ public class OrdemCompraItemEntity {
     private Long id;
 
     @Column(name = "quantidade")
-    private Integer quantidade;
+    private Double quantidade;
 
     @ManyToOne
     @JoinColumn(name = "id_ordem_compra", referencedColumnName = "id")

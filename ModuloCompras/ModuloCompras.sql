@@ -95,4 +95,6 @@ create table ordem_compra_item_cotacao(
 );
 
 
+select * from pessoa;
+
 

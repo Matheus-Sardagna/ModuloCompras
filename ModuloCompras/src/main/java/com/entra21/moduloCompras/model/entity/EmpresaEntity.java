@@ -15,7 +15,7 @@ public class EmpresaEntity {
     private Long id;
 
     @Column(name = "razao_social")
-    private String razaoSocial;
+    private String razao_social;
 
     @Column(name = "cnpj")
     private String cnpj;

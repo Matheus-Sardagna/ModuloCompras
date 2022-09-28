@@ -7,4 +7,5 @@ public class ItemDTO {
     private Long id;
     private String descricao;
     private Boolean ativo;
+    private Long id_empresa;
 }

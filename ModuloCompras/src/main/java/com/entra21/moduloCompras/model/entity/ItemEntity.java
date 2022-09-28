@@ -8,7 +8,6 @@ import java.util.Set;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "item")
 public class ItemEntity {
     @Column(name = "id")
@@ -22,10 +21,9 @@ public class ItemEntity {
     @Column(name = "ativo")
     private Boolean ativo;
 
-
     @ManyToOne
     @JoinColumn(name = "id_empresa", referencedColumnName = "id")
-    private PessoaEntity idEmpresa;
+    private EmpresaEntity id_empresa;
 
 
 }

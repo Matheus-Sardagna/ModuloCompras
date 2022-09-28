@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class OrdemCompraItemDTO {
     private Long id;
-    private Integer quantidade;
+    private Double quantidade;
 }

@@ -1,10 +1,7 @@
 package com.entra21.moduloCompras.controller;
 
-import com.entra21.moduloCompras.model.dto.OrcamentoDTO;
 import com.entra21.moduloCompras.model.dto.OrdemCompraItemCotacaoDTO;
-import com.entra21.moduloCompras.model.entity.OrcamentoEntity;
 import com.entra21.moduloCompras.model.entity.OrdemCompraItemCotacaoEntity;
-import com.entra21.moduloCompras.view.service.OrcamentoService;
 import com.entra21.moduloCompras.view.service.OrdemCompraItemCotacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,8 +35,8 @@ public class OrdemCompraItemCotacaoRestController {
     }
 
     @PutMapping("/{id}")
-    public OrdemCompraItemCotacaoDTO updateOrdemCompraItemCotacao(@PathVariable(name = "id") Long id,
-                                        @RequestBody OrdemCompraItemCotacaoEntity novaOrdemCompraItemCotacao) {
+    public OrdemCompraItemCotacaoEntity updateOrdemCompraItemCotacao(@PathVariable(name = "id") Long id,
+                                                                     @RequestBody OrdemCompraItemCotacaoEntity novaOrdemCompraItemCotacao) {
         return ordemCompraItemCotacaoService.update(id, novaOrdemCompraItemCotacao);
     }
 }
